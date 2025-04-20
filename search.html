@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search : Image Gallery</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    .art-piece {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .art-piece:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    select.dark-mode,
+    input.dark-mode {
+      background-color: #2d3748;
+      color: white;
+      border-color: #4a5568;
+    }
+
+    .loading,
+    .no-results {
+      display: none;
+      text-align: center;
+      font-size: 1.25rem;
+      color: #4a5568;
+    }
+
+    .loading.active,
+    .no-results.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900 transition-colors duration-300">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center p-8 bg-gray-300">
+    <h1 class="text-4xl font-bold">Image Gallery</h1>
+    <nav class="flex items-center space-x-6">
+      <a href="index.html" class="text-xl font-bold text-gray-900 hover:text-gray-700">Home</a>
+      <a href="#" class="text-xl font-bold text-gray-900 hover:text-gray-700">Search</a>
+      <a href="category.html" class="text-xl font-bold text-gray-900 hover:text-gray-700">Category</a>
+    </nav>
+    <button id="dark-mode-toggle" class="p-2 bg-gray-800 text-white rounded-lg hover:bg-gray-600">🌙 Dark Mode</button>
+  </header>
+
+  <!-- Main Container-->
+  <main class="container mx-auto py-10 px-4 min-h-[71.25vh]">
+    <div class="mb-8 text-center">
+      <label for="search-input" class="text-xl font-semibold mr-4">Search:</label>
+      <input type="text" id="search-input" placeholder="Type title or category . . . "
+        class="p-3 border border-gray-300 rounded-lg w-full max-w-md" />
+    </div>
+
+    <!-- Loading & No Results Messages -->
+    <div id="loading" class="loading">Loading results...</div>
+    <div id="no-results" class="no-results">No results found. Please try again.</div>
+
+    <!-- Search Results -->
+    <div id="search-results" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Results appear here -->
+    </div>
+  </main>
+
+  <!-- Lightbox (appears on clicking view button on image)-->
+  <div id="lightbox" class="fixed inset-0 hidden justify-center items-center h-screen w-screen z-50">
+    <div class="bg-gray-300 rounded-lg w-full h-full relative flex flex-col justify-center items-center">
+      <div id="lightbox-1"
+        class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex justify-between w-full px-6 py-4 bg-gray-100/50 text-gray z-10">
+        <h2 id="lightbox-title" class="text-2xl font-semibold"></h2>
+        <button id="close-lightbox"
+          class="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 opacity-100">Close</button>
+      </div>
+      <img id="lightbox-image" class="w-full object-contain mb-4 shadow-lg" />
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 py-5 mt-10">
+    <div class="flex justify-center">
+      <p class="text-white text-xl">Designed & Developed by Anuj Bhakat</p>
+    </div>
+  </footer>
+  <script src="./search.js"></script>
+
+</body>
+
+</html>

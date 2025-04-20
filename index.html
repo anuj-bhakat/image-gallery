@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home : Image Gallery</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    .art-piece {
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .art-piece:hover {
+      transform: scale(1.05);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900 transition-colors duration-300">
+
+  <header class="flex justify-between items-center p-8 bg-gray-300">
+    <h1 class="text-center text-4xl font-bold">Image Gallery</h1>
+
+    <!-- Navbar Section -->
+    <nav class="flex items-center space-x-6">
+      <a href="#" class="text-xl font-bold text-gray-900 hover:text-gray-700">Home</a>
+      <a href="search.html" class="text-xl font-bold text-gray-900 hover:text-gray-700">Search</a>
+      <a href="category.html" class="text-xl font-bold text-gray-900 hover:text-gray-700">Category</a>
+    </nav>
+
+    <!-- Dark/Light Mode Toggle -->
+    <button id="dark-mode-toggle" class="p-2 bg-gray-800 text-white rounded-lg hover:bg-gray-600">
+      🌙 Dark Mode
+    </button>
+  </header>
+
+  <div class="h-150 my-5 mx-10">
+    <!-- Image Carousel -->
+    <div id="carousel" class="relative h-full">
+      <!-- Main Image -->
+      <img id="carousel-image" src="" alt="Image Carousel" class="w-full h-full object-cover shadow-lg rounded-lg" />
+      
+      <!-- Navigation Buttons  -->
+      <button id="prev-button" class="absolute left-6 top-1/2 transform -translate-y-1/2 bg-black text-white py-2 px-4 rounded-full hover:bg-gray-600 z-10">&#10094;</button>
+      
+      <button id="next-button" class="absolute right-6 top-1/2 transform -translate-y-1/2 bg-black text-white py-2 px-4 rounded-full hover:bg-gray-600 z-10">&#10095;</button>
+      
+    </div>
+  </div>
+
+
+  <!-- Image Description Section -->
+  <section class="bg-gray-200 px-10 py-8 m-10 text-center shadow-lg rounded-xl">
+    <h2 class="text-2xl font-semibold mb-4">Search for Images</h2>
+    <p class="mb-6">Search for images by category or name to discover more stunning visuals.</p>
+    <a href="search.html" class="px-6 py-3 bg-blue-600 text-white rounded-lg text-xl hover:bg-blue-700">Start Searching</a>
+  </section>
+
+  <!-- Category View Section -->
+  <section class="bg-gray-200 px-10 py-8 m-10 text-center shadow-lg rounded-xl">
+    <h2 class="text-2xl font-semibold mb-4">Explore by Category</h2>
+    <p class="mb-6">Browse images categorized by nature, animals, space, and nightscapes to find your favorites.</p>
+    <a href="category.html" class="px-6 py-3 bg-green-600 text-white rounded-lg text-xl hover:bg-green-700">Explore Categories</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 py-5">
+    <div class="flex justify-center">
+      <p class="text-white text-xl">Designed & Developed by Anuj Bhakat</p>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

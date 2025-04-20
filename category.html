@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category : Image Gallery</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    .art-piece {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .art-piece:hover {
+      transform: scale(1.1);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    select.dark-mode {
+      background-color: #2d3748;
+      color: white;
+      border-color: #4a5568;
+    }
+
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900 transition-colors duration-300">
+
+  <header class="flex justify-between items-center p-8 bg-gray-300">
+
+    <h1 class="text-center text-4xl font-bold">Image Gallery</h1> 
+
+    <!-- Navbar Section -->
+    <nav class="flex items-center space-x-6">
+      <a href="index.html" class="text-xl font-bold text-gray-900 hover:text-gray-700">Home</a>
+      <a href="search.html" class="text-xl font-bold text-gray-900 hover:text-gray-700">Search</a>
+      <a href="#" class="text-xl font-bold text-gray-900 hover:text-gray-700">Category</a>
+    </nav>  
+  
+    <!-- Dark/Light Mode Toggle -->
+    <button id="dark-mode-toggle" class="p-2 bg-gray-800 text-white rounded-lg hover:bg-gray-600">
+      🌙 Dark Mode
+    </button>
+  </header>
+  
+
+  <div class="container mx-auto py-10 min-h-[76.75vh]">
+    <!-- Category Selection -->
+    <div class="mb-8 text-center">
+      <label for="category" class="text-xl font-semibold mr-4">Select Category:</label>
+      <select id="category" class="p-2 border border-gray-300 rounded-lg">
+        <option value="nature">Nature</option>
+        <option value="animals">Animals</option>
+        <option value="space">Space & Planet</option>
+        <option value="nightscape">Nightscape</option>
+      </select>
+    </div>
+
+    <!-- Image Grid -->
+    <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-10">
+      <!-- Images will load here based on the selection -->
+    </div>
+  </div>
+
+  <!-- Display Box (which appears on clicking image) -->
+  <div id="lightbox" class="fixed inset-0 hidden justify-center items-center h-screen w-screen">
+    <div class="bg-gray-300 rounded-lg w-full h-full relative flex flex-col justify-center items-center">
+
+      <!-- Image Title and Close Button -->
+      <div id="lightbox-1" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex justify-between w-full px-6 py-4 bg-gray-100/50 text-gray z-10">
+          <h2 id="lightbox-title" class="text-2xl font-semibold"></h2>
+          <button id="close-lightbox" class="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 opacity-100">
+              Close
+            </button>
+      </div>
+
+      <!-- Navigation Arrows to change image -->
+      <button id="prev-button" class="absolute left-6 top-1/2 transform -translate-y-1/2 bg-black text-white py-2 px-4 rounded-full hover:bg-gray-600 z-10">
+        &#10094;
+      </button>
+      <button id="next-button" class="absolute right-6 top-1/2 transform -translate-y-1/2 bg-black text-white py-2 px-4 rounded-full hover:bg-gray-600 z-10">
+        &#10095;
+      </button>
+
+      <!-- Image -->
+      <img id="lightbox-image" class="w-full object-contain mb-4 shadow-lg" />
+
+    </div>
+  </div>
+
+  <!-- Footer  -->
+  <footer class="bg-gray-800 py-5">
+    <div class="flex justify-center">
+      <p class="text-white text-xl">Designed & Developed by Anuj Bhakat</p>
+    </div>
+  </footer>
+
+  <script src="./category.js"></script>
+</body>
+
+</html>
